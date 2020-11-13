@@ -13,9 +13,6 @@
             <div class="float-right">
                 <div class="col-12 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/comida" th:href="@{'/comida'}">Historial</a>
-                        </li>
                         
                         <li class="nav-item active">
                             <a class="nav-link active" href="/comida/crear" th:href="@{'/comida/crear'}">Agregar</a>
@@ -26,7 +23,7 @@
                         </li>
                         
                         <li class="nav-item active">
-                            <a class="nav-link" href="/comida/eliminar" th:href="@{'/comida/eliminar'}">Eliminar</a>
+                            <a class="nav-link" href="/comida" th:href="@{'/comida'}">Eliminar</a>
                         </li>
                     </ul>
                 </div>
@@ -38,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3>Formulario historial registros</h3><br>
+                <h3>Formulario eliminar registros</h3><br>
             </div>
 
             <div class="col-12">
@@ -52,6 +49,7 @@
                             <th scope="col">Fecha Vencimiento</th>
                             <th scope="col">Marca</th>
                             <th scope="col">Cantidad</th>
+                            <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody th:each="comida : ${comidas}">
@@ -62,13 +60,13 @@
                             <td th:text="${comida.fec_v}"></td>
                             <td th:text="${comida.marca_com}"></td>
                             <td th:text="${comida.can}"></td>
-                            <!--td>
+                            <td>
                             	<form method="post" action="/comida/delete/${comida.idComida}" th:action="@{'/comida/delete/' + ${comida.idComida}}">
                             		<input type="hidden" name="userId" th:value="${comida.idComida}">
 									<input type="hidden" name="_method" value="Borrar"/>
                      				<button type="submit" class="text-center btn"><i class="fas fa-trash"></i></button>
                             	</form>
-                            </td-->
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -77,5 +75,6 @@
     </div>
 </body>
 </html>
+
 
 

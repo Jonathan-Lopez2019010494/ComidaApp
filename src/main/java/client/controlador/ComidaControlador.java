@@ -55,12 +55,6 @@ public class ComidaControlador {
 		return "redirect:/comida";
 	}
 	
-	@GetMapping("/eliminar")
-	public String redirectdel(Model model) {
-		model.addAttribute("delComida", new ComidaDTO());
-		return "DelComida";		
-	}
-	
 	@PostMapping("/delete/{id}")
 	public String borrar(@PathVariable("id") Long id) {
 		servicioComida.borrar(id);
